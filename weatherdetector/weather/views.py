@@ -1,9 +1,13 @@
 from django.shortcuts import render
 import json
 import urllib.request
+import os
+from dotenv import load_dotenv
 
 # Create your views here.
-API_KEY = '' #INSERT OPEN WEATHER MAP API KEY
+load_dotenv()
+API_KEY = os.getenv('API')
+
 def index(request):
     if request.method == 'POST':
         city = request.POST['city']
